@@ -16,6 +16,7 @@ static const NSInteger kNumberOfCells = 100;
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *tableViewData;
+@property (strong, nonatomic) NSMutableDictionary *rowToCellHeightCache;
 
 // IBOutlet's
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,6 +30,7 @@ static const NSInteger kNumberOfCells = 100;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         _tableViewData = [NSMutableArray new];
+        _rowToCellHeightCache = [NSMutableDictionary new];
     }
     return self;
 }
@@ -84,13 +86,17 @@ static const NSInteger kNumberOfCells = 100;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.rowToCellHeightCache[@(indexPath.row)] = @(cell.frame.size.height);
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Using the iOS 8 auto-resizing cells
     return UITableViewAutomaticDimension;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100.0;
+    return [self.rowToCellHeightCache[@(indexPath.row)] doubleValue] ? : 100;
 }
 
 @end
