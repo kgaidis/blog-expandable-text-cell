@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZYp-rH-ydt" userLabel="tableView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpandableLabelTableViewCell" rowHeight="45" id="nns-eo-qg4" customClass="ExpandableLabelTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nns-eo-qg4" id="Jxv-vF-fCe">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egP-19-rhD" userLabel="label" customClass="ExpandableLabel">
+                                                    <rect key="frame" x="10" y="10" width="580" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="egP-19-rhD" firstAttribute="leading" secondItem="Jxv-vF-fCe" secondAttribute="leading" constant="10" id="1eq-e3-0MJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="egP-19-rhD" secondAttribute="trailing" constant="10" id="4A7-Ap-tYS"/>
+                                                <constraint firstItem="egP-19-rhD" firstAttribute="top" secondItem="Jxv-vF-fCe" secondAttribute="top" constant="10" id="8oc-7a-aUL"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="egP-19-rhD" secondAttribute="bottom" constant="10" id="aPY-sI-B9Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="egP-19-rhD" id="YYA-0K-Wi1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="U2R-8t-DIL"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="O8O-5K-EcO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ZYp-rH-ydt" secondAttribute="bottom" id="3G9-bQ-C2k"/>
+                            <constraint firstAttribute="trailing" secondItem="ZYp-rH-ydt" secondAttribute="trailing" id="CkK-17-sBN"/>
+                            <constraint firstItem="ZYp-rH-ydt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="dxD-Rf-FYA"/>
+                            <constraint firstItem="ZYp-rH-ydt" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="xTE-X8-YXI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ZYp-rH-ydt" id="752-zS-hta"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
